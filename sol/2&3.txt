@@ -1,0 +1,985 @@
+2a.
+Variable
+i)
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.6.12 <0.9.0;
+contract SolidityTest{uint storedData; // State variable
+constructor()  {
+storedData = 10;
+}
+function getResult() public pure returns(uint){
+uint a = 1; // local variable
+uint b = 5;
+uint result = a + b;
+return result; //access the state variable
+}
+}
+ii)
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.6.12 <0.9.0;
+// Creating a contract
+contract Solidity_var_Test {
+// Defining function to show the declaration and
+// scope of local variables
+function getResult() public pure returns(uint){
+    // Initializing local variables
+    uint local_var1 = 1;
+    uint local_var2 = 2;
+    uint result = local_var1 + local_var2;
+    // Access the local variable
+    return result;
+}
+}
+iii/)
+pragma solidity >=0.6.12 <0.9.0;
+// Creating a contract
+contract Test {
+    // Defining a variable
+    address public admin;
+
+    // Creating a constructor to use Global variable
+    constructor() {
+        admin = msg.sender;
+    }
+}
+ 	
+, Operators,
+1.	Arithmetic Operator
+// SPDX-License-Identifier: MIT
+pragma solidity <0.5.0;
+// Creating a contract 
+contract SolidityTest {
+// Initializing variables 
+uint16 public a = 20; 
+uint16 public b = 10;
+// Initializing a variable with sum
+uint public sum = a + b;
+// Initializing a variable with the difference 
+uint public diff = a - b;
+// Initializing a variable with product
+uint public mul = a * b;
+// Initializing a variable with quotient
+uint public div = a / b;
+// Initializing a variable with modulus
+uint public mod = a % b;
+// Initializing a variabl decrement value 
+uint public dec = --b;
+// Initializing a variable with increment value 
+uint public inc = ++a;
+}
+2.Relational Operator
+Code:
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.5.0;
+
+// Creating a contract 
+contract SolidityTest {
+
+// Declaring variables 
+uint16 public a = 50; 
+uint16 public b = 30;
+// Initializing a variable with bool equal result 
+bool public eq = a == b;
+// Initializing a variable with bool not equal result 
+bool public noteq = a != b;
+// Initializing a variable with bool greater than result 
+bool public gtr = a > b;
+// Initializing a variable with bool less than result 
+bool public les = a < b;
+// Initializing a variable with bool greater than equal to result 
+bool public gtreq = a >= b;
+// Initializing a variable
+// bool less than equal to result 
+bool public leseq = a <= b;
+}
+3.	Logical Operator
+Code:
+pragma solidity ^0.5.0;
+
+// Creating a contract 
+contract logicalOperator{
+// Defining function to demonstrate Logical operator 
+function Logic(bool a, bool b) public view returns( 
+    bool, bool, bool){
+        // Logical AND operator 
+        bool and = a&&b;
+
+        // Logical OR operator 
+        bool or = a||b;
+
+        // Logical NOT operator 
+        bool not = !a;
+        return (and, or, not);
+    }
+}
+4.	Bitwise Operator
+Code:
+pragma solidity ^0.5.0;
+
+// Creating a contract 
+contract SolidityTest {
+
+// Declaring variables 
+uint16 public a = 50; 
+uint16 public b = 70;
+
+// Initializing a variable to '&' value
+uint16 public and = a & b;
+
+// Initializing a variable to '|' value
+uint16 public or = a | b;
+
+// Initializing a variable to '^' value
+uint16 public xor = a ^ b;
+
+// Initializing a variable to '<<' value
+uint16 public leftshift = a << b;
+
+// Initializing a variable to '>>' value
+uint16 public rightshift = a >> b;
+
+// Initializing a variable to '~' value
+uint16 public not = ~a ;
+
+}
+5.	Assignment Operator
+Code:
+pragma solidity ^0.5.0;
+
+// Creating a contract 
+contract SolidityTest {
+
+// Declaring variables
+uint16 public assignment = 20;
+uint public assignment_add = 50; 
+uint public assign_sub = 50;
+uint public assign_mul = 10; 
+uint public assign_div = 50; 
+uint public assign_mod = 32;
+
+// Defining function to demonstrate Assignment Operator 
+function getResult() public{ 
+    assignment_add += 10;
+    assign_sub -= 20;
+    assign_mul *= 10;
+    assign_div /= 10;
+    assign_mod %= 20; 
+    return ;
+}
+}
+
+6.	Conditional Operator
+Code:
+pragma solidity ^0.5.0;
+
+// Creating a contract 
+contract SolidityTest{
+// Defining function to demonstrate conditional operator 
+function sub(
+uint a, uint b) public view returns( uint){
+    uint result = (a > b? a-b : b-a); 
+    return result;
+}
+}
+
+ Loops,
+ 1.	While Loop
+Code: 
+pragma solidity ^0.5.0; 
+contract SolidityTest { uint storedData; constructor() public{ storedData = 10;
+}
+function getResult() public view returns(string memory){ 
+    uint a = 10;
+    uint b = 2;
+    uint result = a + b;
+    return integerToString(result); 
+}
+function integerToString(uint _i) internal pure returns (string memory) {
+    if (_i == 0) { return "0";
+}
+uint j = _i; uint len;
+while (j != 0) { 
+    len++;
+    j /= 10;
+}
+bytes memory bstr = new bytes(len); uint k = len - 1;
+while (_i != 0) {
+    bstr[k--] = byte(uint8(48 + _i % 10));
+    _i /= 10;
+}
+return string(bstr);
+}
+}
+2.	Do-while Loop
+Code:
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.5.12 <0.8.0;
+
+contract SolidityTest {
+uint storedData;
+constructor() public{
+storedData = 10;
+}
+
+function getResult() public view returns(string memory){
+uint a = 10;
+uint b = 2;
+uint result = a + b;
+return integerToString(result);
+}
+
+function integerToString(uint _i) internal pure
+returns (string memory) {
+if (_i == 0) {
+return "0";
+}
+uint j=0;
+uint len;
+for (j = _i; j != 0; j /= 10) {  //for loop example
+len++;
+}
+bytes memory bstr = new bytes(len);
+uint k = len - 1;
+while (_i != 0) {
+bstr[k--] = byte(uint8(48 + _i % 10));
+_i /= 10;
+}
+return string(bstr);//access local variable
+}}
+3.	For Loop
+Code and Output:
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.5.12 <0.8.0;
+contract SolidityTest {
+uint storedData;
+constructor() public{
+storedData = 10;
+}
+
+function getResult() public view returns(string memory){
+uint a = 10;
+uint b = 2;
+uint result = a + b;
+return integerToString(result);
+}
+
+function integerToString(uint _i) internal pure
+returns (string memory) {
+if (_i == 0) {
+return "0";
+}
+uint j=0;
+uint len;
+for (j = _i; j != 0; j /= 10) {  //for loop example
+len++;
+}
+bytes memory bstr = new bytes(len);
+uint k = len - 1;
+while (_i != 0) {
+bstr[k--] = byte(uint8(48 + _i % 10));
+_i /= 10;
+}
+return string(bstr);//access local variable
+}}
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.5.12 <0.8.0;
+contract SolidityTest {
+uint storedData;
+constructor() public{
+storedData = 10;
+}
+function getResult() public view returns(string memory){
+uint a = 10;
+uint b = 2;
+uint result = a + b;
+return integerToString(result);
+}
+
+function integerToString(uint _i) internal pure
+returns (string memory) {
+if (_i == 0) {
+return "0";
+}
+uint j=0;
+uint len;
+for (j = _i; j != 0; j /= 10) {  //for loop example
+len++;
+}
+bytes memory bstr = new bytes(len);
+uint k = len - 1;
+while (_i != 0) {
+bstr[k--] = byte(uint8(48 + _i % 10));
+_i /= 10;
+}
+return string(bstr);//access local variable
+}}
+
+4. loop Control: (Break statement)
+Code and Output:
+I)BREAK
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.5.12 <0.8.0;
+contract SolidityTest {
+uint storedData;
+constructor() public{
+storedData = 10;
+}
+function getResult() public view returns(string memory){
+uint a = 1;
+uint b = 2;
+uint result = a + b;
+return integerToString(result);
+}
+function integerToString(uint _i) internal pure
+returns (string memory) {
+
+if (_i == 0) {
+return "0";
+}
+uint j = _i;
+uint len;
+
+while (true) {
+len++;
+j /= 10;
+if(j==0){
+break;   //using break statement
+}
+}
+bytes memory bstr = new bytes(len);
+uint k = len - 1;
+
+while (_i != 0) {
+bstr[k--] = byte(uint8(48 + _i % 10));
+_i /= 10;
+}
+return string(bstr);
+}
+}
+
+5. Continue statement
+Code and Output:
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.5.12 <0.8.0;
+contract SolidityTest {
+uint storedData;
+constructor() public{
+storedData = 10;
+}
+function getResult() public view returns(string memory){
+uint n = 1;
+uint sum = 0;
+
+while( n < 10){
+n++;
+if(n == 5){
+continue; // skip n in sum when it is 5.
+}
+sum = sum + n;
+}
+return integerToString(sum);
+}
+function integerToString(uint _i) internal pure
+returns (string memory) {
+
+if (_i == 0) {
+return "0";
+}
+uint j = _i;
+uint len;
+
+while (true) {
+len++;
+j /= 10;
+if(j==0){
+break;   //using break statement
+}
+}
+bytes memory bstr = new bytes(len);
+uint k = len - 1;
+
+while (_i != 0) {
+bstr[k--] = byte(uint8(48 + _i % 10));
+_i /= 10;
+}
+return string(bstr);
+}
+}
+
+Decision Making,
+1. If-statement
+Code and Output:
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.5.12 <0.8.0;
+contract SolidityTest {
+uint storedData;
+constructor() public {
+storedData = 10;
+}
+function getResult() public view returns(string memory){
+uint a = 1;
+uint b = 2;
+uint result = a + b;
+return integerToString(result);
+}
+function integerToString(uint _i) internal pure
+returns (string memory) {
+if (_i == 0) {   // if statement
+return "0";
+}
+uint j = _i;
+uint len;
+
+while (j != 0) {
+len++;
+j /= 10;
+}
+bytes memory bstr = new bytes(len);
+uint k = len - 1;
+
+while (_i != 0) {
+bstr[k--] = byte(uint8(48 + _i % 10));
+_i /= 10;
+}
+return string(bstr);//access local variable
+}}
+
+2.If-else statement:
+Code and Output:
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.5.12 <0.8.0;
+contract Types {
+// Declaring state variables
+uint i = 10;
+bool even;
+
+// Defining function to
+// demonstrate the use of
+// 'if...else statement'
+function decision_making(
+) public payable returns(bool){
+if (i%2 == 0){
+even = true;
+}
+else{
+even = false;
+}
+return even;
+}
+}
+
+3.If-else..if statement: 
+Code and Output:
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.5.12 <0.8.0;
+contract Types {
+// Declaring state variables
+uint i = 12;
+string result;
+// Defining function to
+// demonstrate the use
+// of 'if...else if...else
+// statement'
+function decision_making (
+) public returns(string memory){
+if(i<10){
+result = "less than 10";
+}
+else if(i == 10){
+result = "equal to 10";
+}
+else{
+result = "greater than 10";
+}
+return result;
+}
+}
+
+
+ Strings,
+ Code and Output:
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.6.12 <0.9.0;
+// Creating a contract
+contract Test {
+// Declaring variable
+string  str;
+
+// Defining a constructor
+constructor(string memory str_in){
+    str = str_in;
+}
+// Defining a function to
+// return value of variable 'str'
+function str_out() public view returns(string memory){
+return str;
+}
+}
+
+
+Arrays, 
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.6.12 <0.9.0;
+
+// Creating a contract
+contract Types {
+
+// Declaring an array
+uint[6] data;
+uint x;
+
+// Defining function to
+// assign values to array
+function array_example() public returns (uint[6] memory)
+{
+
+data  = [uint(10), 20, 30, 40, 50, 60];
+}
+function result() public view returns(uint[6] memory){
+return data;
+}
+// Defining function to access
+// values from the array
+// from a specific index
+function array_element() public view returns (uint){
+uint x = data[2];
+return x;
+}
+}
+
+
+Enums,
+ pragma solidity >=0.5.12 <0.8.0;
+// Creating a contract
+contract Types
+{
+// Creating an enumerator
+enum week_days {
+Monday
+,
+Tuesday
+,
+Wednesday
+,
+Thursday
+,
+Friday
+,
+Saturday
+,
+Sunday }
+// Declaring variables of
+// type enumerator
+week_days week
+;
+week_days choice
+;
+// Setting a default value
+week_days constant default_value = week_days.Sunday;
+// Defining a function to
+// set value of choice
+function set_value() public
+{
+choice
+= week_days
+.Thursday
+;
+}
+// Defining a function to
+// return value of choice
+function get_choice
+(
+) public view returns
+(week_days
+)
+{
+return choice
+;
+}
+// Defining function to
+// return default value
+function getdefaultvalue
+(
+) public pure returns
+(week_days
+)
+{
+return default_value
+;
+}}
+
+Structs,
+pragma solidity >=0.5.12 <0.8.0;
+contract test {
+struct Book {
+string title;
+string author;
+uint book_id;
+}
+Book book;
+function setBook() public {
+book = Book('Learn Java', 'TP', 1);
+}
+function getBookId() public view returns (uint) {
+return book.book_id;
+}
+}
+
+Mappings,
+
+pragma solidity >=0.5.12 <0.8.0;
+contract LedgerBalance {
+mapping(address => uint) balance;
+function updateBalance() public returns(uint) {
+balance[msg.sender]=30;
+return balance[msg.sender];
+}
+}
+
+
+2b.
+
+Functions, 
+pragma solidity >=0.5.12 <0.8.0;
+contract SolidityTest {
+constructor() public{
+}
+function getResult() public view returns(string memory){
+uint a = 1;
+uint b = 2;
+uint result = a + b;
+return integerToString(result);
+}
+function integerToString(uint _i) internal pure
+returns (string memory) {
+if (_i == 0) {
+return "0";
+}
+uint j = _i;
+uint len;
+while (j != 0) {
+len++;
+j /= 10;
+}
+bytes memory bstr = new bytes(len);
+uint k = len - 1;
+while (_i != 0) {
+bstr[k--] = byte(uint8(48 + _i % 10));
+_i /= 10;
+}
+return string(bstr); //access local variable
+}
+}
+
+
+Function Modifiers,
+
+ View functions,
+pragma solidity >=0.5.12 <0.8.0;
+contract Test {
+function getResult() public view returns(uint product, uint sum){
+uint a = 1; // local variable
+uint b = 2;
+product = a * b;
+sum = a + b;
+}
+}
+
+ Pure Functions,
+pragma solidity >=0.5.12 <0.8.0;
+contract Test {
+function getResult() public pure returns(uint product, uint sum){
+uint a = 12;
+uint b = 5;
+product = a * b;
+sum = a + b;
+}
+}
+
+ Fallback Function,
+pragma solidity >=0.5.12 <0.8.0;
+contract LedgerBalance {
+string public calledFallbackFun;
+fallback() external payable{
+calledFallbackFun="Fallback function is executed!";
+}
+function getBalance() public view returns (uint) {
+return address(this).balance;
+}
+}
+contract Sender
+{
+function transferEther() public payable
+{
+(bool sent, ) = payable(0xD4Fc541236927E2EAf8F27606bD7309C1Fc2cbee).call{value: 2 ether}("Transaction Completed!");
+require(sent, "Transaction Failed!");
+}
+function getBalance() public view returns (uint) {
+return address(this).balance;
+}
+}
+
+Function Overloading,
+contract Test {
+function getSum(uint a, uint b) public pure returns(uint){
+return a + b;
+}
+function getSum(uint a, uint b, uint c ) public pure returns(uint){
+return a + b + c;
+}
+function callSumWithTwoArguments() public pure returns(uint){
+return getSum(2,2);
+}
+function callSumWithThreeArguments() public pure returns(uint){
+return getSum(1,2,4);
+}
+}
+
+ Mathematical functions,
+contract Test {
+function callAddMod() public pure returns(uint){
+return addmod(4, 5, 3);
+}
+function callMulMod() public pure returns(uint){
+return mulmod(4, 5, 3);
+}
+}
+
+ Cryptographic functions.
+contract Test {
+function callKeccak256() public pure returns(bytes32 result){
+return keccak256("ABC");
+}
+}
+
+
+PR 3
+
+Contracts,
+ritance, Constructors, Abstract Contracts, Interfaces.
+i. Contracts
+pragma solidity >=0.5.0 <0.7.0;
+contract C {
+//private state variable
+uint private data;
+
+//public state variable
+uint public info;
+
+//constructor
+constructor() public {
+info = 10;
+}
+//private function
+function increment(uint a) private pure returns(uint) { return a + 1; }
+//public function
+function updateData(uint a) public { data = a; }
+function getData() virtual public view returns(uint) { return data; }
+function compute(uint a, uint b) internal pure returns (uint) { return a + b; }
+}
+//Derived Contract
+contract E is C {
+uint private result;
+C private c;
+
+constructor() public {
+c = new C();
+}
+function getComputedResult() public {
+result = compute(3, 5);
+}
+function getResult() public view returns(uint) { return result; }
+funct
+
+ Inheritance,
+pragma solidity >=0.5.0 <0.7.0;
+// Defining contract
+contract parent{
+// Declaring internal
+// state variable
+uint internal sum;
+
+// Defining external function
+// to set value of internal
+// state variable sum
+function setValue() external {
+uint a = 20;
+uint b = 20;
+sum = a + b;
+}
+}
+// Defining child contract
+contract child is parent{
+
+// Defining external function
+// to return value of
+// internal state variable sum
+function getValue() external view returns(uint) {
+return sum;
+}
+}
+// Defining calling contract
+contract caller {
+
+// Creating child contract object
+child cc = new child();
+
+// Defining function to call
+// setValue and getValue functions
+function testInheritance() public {
+cc.setValue();
+}
+function result() public view returns(uint ){
+return cc.getValue();
+}
+}
+
+ Constructors,
+pragma solidity >=0.5.0 <0.7.0;
+contract Base {
+uint data;
+constructor(uint _data) public {
+data = _data;
+}
+function getresult()public view returns(uint){
+return data;
+}
+}
+contract Derived is Base (5) {
+constructor() public {}
+}
+
+// Indirect Initialization of Base Constructor
+pragma solidity >=0.5.0 <0.7.0;
+
+contract Base {
+uint data;
+constructor(uint _data) public {
+data = _data;
+}
+function getresult()public view returns(uint){
+return data;
+}
+}
+contract Derived is Base {
+constructor(uint _info) Base(_info * _info) public {}
+}
+
+ Abstract Contracts,
+pragma solidity ^0.8.0;
+abstract contract Calculator {
+function getResult() public view virtual  returns(uint);
+}
+contract Test is Calculator {
+function getResult() public view override returns(uint) {
+uint a = 4;
+uint b = 2;
+uint result = a + b;
+return result;
+}
+}
+
+ Interfaces.
+pragma solidity ^0.8.0;
+
+interface Calculator {
+function getResult() external view returns(uint);
+}
+contract Test is Calculator {
+constructor() public {}
+function getResult() external view returns(uint){
+uint a = 5;
+uint b = 2;
+uint result = a + b;
+return result;
+}
+}
+
+
+Libraries,
+ pragma solidity >=0.5.12 <0.8.0;
+library Search {
+function indexOf(uint[] storage self, uint value) public view returns (uint) {
+for (uint i = 0; i < self.length; i++)
+if (self[i] == value) return i;
+return uint(-1);}
+}
+contract Test {
+uint[] data;
+uint value;
+uint index;
+constructor() public {
+data.push(6);
+data.push(7);
+data.push(8);
+data.push(9);
+data.push(10);
+}
+function isValuePresent() external {
+value = 9;
+//search if value is present in the array using Library function
+index = Search.indexOf(data, value);
+}
+function getresult() public view returns(uint){
+return index;
+}
+}
+
+Assembly, 
+pragma solidity >=0.5.12 <0.8.0;
+library Sum {
+function sumUsingInlineAssembly(uint[] memory _data) public pure returns (uint o_sum) {
+for (uint i = 0; i < _data.length; ++i) {
+assembly {
+o_sum := add(o_sum, mload(add(add(_data, 0x20), mul(i, 0x20))))
+}}
+}
+}
+contract Test {
+uint[] data;
+constructor() public {
+data.push(1);
+data.push(2);
+data.push(3);
+data.push(4);
+data.push(5);
+}
+function sum() external view returns(uint){
+return Sum.sumUsingInlineAssembly(data);
+}
+}
+
+Events, 
+pragma solidity >=0.5.12 <0.8.0;
+// Creating a contract
+contract eventExample {
+// Declaring state variables
+uint256 public value = 0;
+// Declaring an event
+event Increment(address owner);
+// Defining a function for logging event
+function getValue(uint _a, uint _b) public {
+emit Increment(msg.sender);
+value = _a + _b;
+}
+}
+
+Error handling.
+pragma solidity >=0.5.12 <0.8.0;
+// Creating a contract
+contract requireStatement {
+// Defining function to
+// check input
+function checkInput(uint8 _input) public view returns(string memory){
+require(_input >= 0, "invalid uint");
+require(_input <= 255, "invalid uint8");
+return "Input is Uint8";
+}
+// Defining function to
+// use require statement
+function Odd(uint _input) public view returns(bool){
+require(_input % 2 != 0);
+return true;
+}
+}
+
