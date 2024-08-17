@@ -1,0 +1,57 @@
+Aim: Create your own blockchain and demonstrate its use.
+
+Step 1: create new directory for storing blockchain data
+mkdir myblockchain2
+cd myblockchain2
+geth account new --datadir data
+Step 5:Create genesis.json file 
+ sudo nano genesis.json
+{
+  "config": {
+    "chainId": 12345,
+    "homesteadBlock": 0,
+    "eip150Block": 0,
+    "eip155Block": 0,
+    "eip158Block": 0,
+    "byzantiumBlock": 0,
+    "constantinopleBlock": 0,
+    "petersburgBlock": 0,
+    "istanbulBlock": 0,
+    "berlinBlock": 0,
+    "ethash": {}
+  },
+  "difficulty": "1",
+  "gasLimit": "8000000",
+  "alloc": {
+    "7df9a875a174b3bc565e6424a0050ebc1b2d1d82": { "balance": "300000" },
+    "Efaf4df069211972a7D2C3306d1F778a1603F10F": { "balance": "400000" }
+  }
+}
+
+save the file -> ctrl +o to write -> {enter} save -> ctrl +x exit
+
+Step 2: initialize the block
+geth init --datadir data genesis.json
+Step 7: create network
+geth --datadir data --networkid 12345
+
+[do not close this terminal]
+
+//////////////////////////////////////////////////////////////////////
+Step 3: open new tab/terminal 2:
+sudo geth attach data/geth.ipc
+eth.getBalance(eth.accounts[0])
+miner.setEtherbase(eth.accounts[0])
+miner.start()
+admin.addPeer(admin.nodeInfo.enode)
+eth.getBalance(eth.accounts[0])
+
+Step 4: Wait for 10-20 minutes and check balance
+eth.getBalance(eth.accounts[0])
+
+
+
+
+
+
+
